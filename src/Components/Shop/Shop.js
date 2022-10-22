@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
+import './Shop.css'
 
 const Shop = () => {
     const[products, setProducts] = useState([]);
@@ -11,12 +12,14 @@ const Shop = () => {
         .then(res => res.json())
         .then(data =>setProducts(data))
     }, [])
-    console.log(products);
+
     return (
-        <div className='row'>
+        <div className='row m-1'>
             <div className="col-md-8">
-                <div className='d-flex'>
-                    <Product />
+                <div className="row">
+                        {
+                            products.map( product => <Product Product={product} /> )
+                        }
                 </div>
             </div>
             <div className="col-md-4">
