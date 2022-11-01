@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Cart = (props) => {
-    const {cart, handleRemoveCart} = props 
+    const {cart, handleRemoveCart, handleResetProduct} = props 
 
     return (
         <div>
@@ -17,8 +17,10 @@ const Cart = (props) => {
                         </div>
                     })
                 }
-
-
+            <div className='choose m-3'>
+                <button className='btn btn-info m-2'>Choose One For Me</button>
+                <button className='btn btn-danger' onClick={()=>handleResetProduct()}>Choose Again</button>
+            </div>    
             </div>
         </div>
     );

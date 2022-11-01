@@ -18,13 +18,18 @@ const Shop = () => {
         setCart(newCart); 
       //  console.log(product);
     }
-    const handleRemoveCart = (id)=>{
+    const handleRemoveCart = (id) => {
        let updateCart = cart.filter((cart) => {
             
            return cart._id !== id;
         })
         setCart(updateCart);
     }
+
+    //all cart rest from cart list component
+    const handleResetProduct = ( () => {
+        setCart([]);
+    })
     
     return (
         <div className='row m-1'>
@@ -36,7 +41,7 @@ const Shop = () => {
                 </div>
             </div>
             <div className="col-md-4">
-                <Cart cart={cart}  handleRemoveCart={handleRemoveCart}/>
+                <Cart cart={cart}  handleRemoveCart={handleRemoveCart} handleResetProduct={handleResetProduct}/>
             </div>
         </div>
     );
