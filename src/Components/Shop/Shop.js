@@ -18,6 +18,14 @@ const Shop = () => {
         setCart(newCart); 
       //  console.log(product);
     }
+    const handleRemoveCart = (id)=>{
+       let updateCart = cart.filter((cart) => {
+            
+           return cart._id !== id;
+        })
+        setCart(updateCart);
+    }
+    
     return (
         <div className='row m-1'>
             <div className="col-md-8">
@@ -28,7 +36,7 @@ const Shop = () => {
                 </div>
             </div>
             <div className="col-md-4">
-                <Cart cart={cart}/>
+                <Cart cart={cart}  handleRemoveCart={handleRemoveCart}/>
             </div>
         </div>
     );
